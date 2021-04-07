@@ -1,0 +1,19 @@
+.container {
+  width: 40%;
+  margin: auto;
+  direction: rtl !important;
+}
+.email {
+  direction: rtl !important;
+}
+.Button {
+  margin-inline-start: auto;
+  margin-block-start: 20px;
+}
+
+@media (min-width: 745px) {
+  .Button {
+    margin-inline-start: 20px;
+    margin-block-start: auto;
+  }
+}
