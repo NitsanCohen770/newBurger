@@ -14,7 +14,7 @@ const SignUp = () => {
   if (fullName) {
     setTimeout(() => {
       return setRedirect(true);
-    }, 3000);
+    }, 2000);
   }
 
   const dispatch = useDispatch();
