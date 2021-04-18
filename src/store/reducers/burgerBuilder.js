@@ -11,6 +11,9 @@ const initialState = {
   totalPrice: 30,
   orderButton: true,
   error: false,
+  meatCount: 0,
+  pastramaCount: 0,
+  saladCount: 0,
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -23,6 +26,14 @@ const reducer = (state = initialState, action) => {
         error: initialState.error,
       };
     case actionTypes.ADD_INGREDIENTS:
+      if (
+        action.ingredientName &&
+        state.ingredients[action.ingredientName] === 2
+      ) {
+        return {
+          ...state,
+        };
+      }
       if (action.ingredientName === 'meat') {
         return {
           ...state,
@@ -36,6 +47,7 @@ const reducer = (state = initialState, action) => {
           orderButton: false,
         };
       }
+
       return {
         ...state,
         ingredients: {

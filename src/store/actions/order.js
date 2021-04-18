@@ -1,5 +1,6 @@
 import * as actionTypes from './actionsTypes';
 import axios from '../../axios-orders';
+import realAxios from 'axios';
 
 export const purchaseBurgerSuccess = (orderData, id) => {
   return {
@@ -24,6 +25,7 @@ export const purchaseBurgerStart = () => {
 
 export const purchaseBurger = orderData => {
   return dispatch => {
+    console.log(orderData);
     const idToken = localStorage.getItem('token');
     const userEmail = localStorage
       .getItem('userEmail')
@@ -42,7 +44,28 @@ export const purchaseBurger = orderData => {
 
       .catch(error => {
         dispatch(purchaseBurgerFail(error));
+      })
+      .then(resonde => {
+        realAxios
+          .post(`http://localhost:5000/send`, { orderData })
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          });
       });
+    // .then(res => {
+    //   return fetch(':5000/send', {
+    //     method: 'post',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //       orderData,
+    //     }),
+    //   })
+    //     .then(res => res.json())
+    //     .catch(err => console.log(err));
+    // });
   };
 };
 
