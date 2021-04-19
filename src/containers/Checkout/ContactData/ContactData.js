@@ -66,7 +66,7 @@ const ContactData = () => {
             })}
           />
           <Form.Text className="text-muted">
-            אנו לעולם לא נשתף את המייל שלך עם גורם שלישי
+            אנו לעולם לא נשתף את המייל שלך עם גוף שלישי
           </Form.Text>
         </Form.Group>
       </Form.Row>

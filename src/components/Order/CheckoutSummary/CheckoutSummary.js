@@ -8,9 +8,6 @@ const checkoutSummary = props => {
   return (
     <div className={classes.CheckoutSummary}>
       <h1>מקווים שתהנו מההמבורגר!</h1>
-      <strong>
-        <hr></hr>
-      </strong>
       <div style={{ width: '100%', margin: 'auto' }}>
         <Burger ingredients={props.ingredients} />
         <p>לחץ המשך להשלמת ההזמנה</p>
