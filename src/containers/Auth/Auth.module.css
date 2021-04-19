@@ -9,6 +9,7 @@
 .Button {
   margin-inline-start: auto;
   margin-block-start: 20px;
+  margin-bottom: 5px;
 }
 
 @media (min-width: 745px) {

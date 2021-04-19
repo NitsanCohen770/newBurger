@@ -135,8 +135,9 @@ const ContactData = () => {
         <Form.Check
           name="checkbox"
           ref={register}
+          inline="true"
           type="checkbox"
-          label="עדכן אותי לגבי מבצעים"
+          label="תשלום במזומן"
         />
       </Form.Group>
 

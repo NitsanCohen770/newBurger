@@ -26,10 +26,7 @@ const reducer = (state = initialState, action) => {
         error: initialState.error,
       };
     case actionTypes.ADD_INGREDIENTS:
-      if (
-        action.ingredientName &&
-        state.ingredients[action.ingredientName] === 2
-      ) {
+      if (state.ingredients[action.ingredientName] === 2) {
         return {
           ...state,
         };
