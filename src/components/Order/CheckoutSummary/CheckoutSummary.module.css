@@ -3,13 +3,13 @@
   width: 80%;
   margin: auto;
 }
-h1 {
+.h1 {
   background-color: rgba(32, 238, 13, 0.232);
   border-radius: 33%;
   display: block;
   margin: auto;
 }
-hr {
+.hr {
   background-color: black;
   display: block;
   margin-top: 0.5em;

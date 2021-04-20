@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import Button from '../../../UI/Button/Button';
+import classes from './OrderSummary.css';
 import { Link } from 'react-router-dom';
-let array = [];
-const orderSummary = props => {
+
+const OrderSummary = props => {
   if (!props.ingredients) {
     return null;
   }
@@ -29,12 +30,15 @@ const orderSummary = props => {
 
   return (
     <Fragment>
-      <h3> ההזמנה שלך:</h3>
-      <p>המבורגר מפנק עם התוספות הבאות: </p>
-      <ul>{orderIngrediens}</ul>
-      <p>סה"כ לתשלום:{props.total} ש"ח</p>
-      <p>המשך לתשלום?</p>
+      <div className={classes.main}>
+        <h3> ההזמנה שלך</h3>
+        <hr></hr>
+        <p>המבורגר מפנק עם התוספות הבאות: </p>
+        <ul>{orderIngrediens}</ul>
 
+        <p>סה"כ לתשלום:{props.total} ש"ח</p>
+        <p>המשך לתשלום?</p>
+      </div>
       <Link
         to={{
           pathname: '/checkout',
@@ -57,4 +61,4 @@ const orderSummary = props => {
   );
 };
 
-export default orderSummary;
+export default OrderSummary;

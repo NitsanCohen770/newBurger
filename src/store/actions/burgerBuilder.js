@@ -1,5 +1,5 @@
 import * as actionTypes from './actionsTypes';
-import axios from '../../axios-orders';
+
 export const addIngredient = name => {
   return {
     type: actionTypes.ADD_INGREDIENTS,
@@ -13,10 +13,16 @@ export const removeIngredient = name => {
   };
 };
 
-export const setIngredients = ingredients => {
+export const setIngredients = () => {
+  if (!localStorage.getItem('ingredients')) {
+    return {
+      type: actionTypes.SET_INGREDIENTS,
+      ingredients: { salad: 0, meat: 0, pastrama: 0 },
+    };
+  }
+  console.log(localStorage.getItem('ingredients'));
   return {
     type: actionTypes.SET_INGREDIENTS,
-    ingredients: ingredients,
   };
 };
 
@@ -26,24 +32,8 @@ export const fetchIngredientsFailed = () => {
   };
 };
 
-export const initIngredients = () => {
-  return dispatch => {
-    axios
-      .get(
-        'https://valued-context-300911-default-rtdb.europe-west1.firebasedatabase.app/ingredients.json'
-      )
-      .then(response => {
-        dispatch(setIngredients(response.data));
-      })
-      .catch(error => {
-        fetchIngredientsFailed();
-      });
-  };
-};
-
 export const resetIngredients = () => {
   return {
     type: actionTypes.RESET_INGREDIENTS,
   };
 };
-

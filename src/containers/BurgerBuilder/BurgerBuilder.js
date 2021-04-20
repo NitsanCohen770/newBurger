@@ -18,48 +18,9 @@ class BurgerBuilder extends Component {
   };
 
   componentDidMount() {
-    if (!this.props.loggedIn) {
-      this.props.onResetPurchase();
-      this.props.onInitIgredients();
-    }
+    this.props.setIngredients();
   }
-  // addIngredientHandler = type => {
-  //   if (type === 'meat') {
-  //     this.setState({ orderButton: false });
-  //   }
-  //   const oldCount = this.state.ingredients[type];
-  //   const updatedCount = oldCount + 1;
-  //   const updatedIngredients = {
-  //     ...this.state.ingredients,
-  //   };
-  //   updatedIngredients[type] = updatedCount;
-  //   const priceAddition = INGREDIENT_PRICES[type];
-  //   const oldPriceCount = this.state.totalPrice;
-  //   const updatedPriceCount = oldPriceCount + priceAddition;
 
-  //   this.setState({ totalPrice: updatedPriceCount });
-  //   this.setState({ ingredients: updatedIngredients });
-  // };
-  // removeIngredientHandler = type => {
-  //   if (this.state.ingredients[type] === 1 && type === 'meat') {
-  //     this.setState({ orderButton: true });
-  //   }
-  //   if (this.state.ingredients[type] === 0) {
-  //     return;
-  //   }
-  //   const oldCount = this.state.ingredients[type];
-  //   const updatedCount = oldCount - 1;
-  //   const updatedIngredients = {
-  //     ...this.state.ingredients,
-  //   };
-  //   updatedIngredients[type] = updatedCount;
-  //   const priceAddition = INGREDIENT_PRICES[type];
-  //   const oldPriceCount = this.state.totalPrice;
-  //   const updatedPriceCount = oldPriceCount - priceAddition;
-
-  //   this.setState({ totalPrice: updatedPriceCount });
-  //   this.setState({ ingredients: updatedIngredients });
-  // };
   confirmPurchaseHandler() {
     this.props.onInitPurchase();
     this.props.history.push('/checkout');
@@ -138,7 +99,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(actions.addIngredient(ingredientName)),
     onIngredientsRemoved: ingredientName =>
       dispatch(actions.removeIngredient(ingredientName)),
-    onInitIgredients: () => dispatch(actions.initIngredients()),
+    setIngredients: () => dispatch(actions.setIngredients()),
     onInitPurchase: () => dispatch(actions.purchaseInit()),
     onResetPurchase: () => dispatch(actions.resetIngredients()),
   };

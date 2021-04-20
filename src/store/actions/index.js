@@ -1,7 +1,7 @@
 export {
   addIngredient,
   removeIngredient,
-  initIngredients,
+  setIngredients,
   resetIngredients,
 } from './burgerBuilder';
 export {
@@ -14,4 +14,12 @@ export {
   userLogout,
 } from './order';
 
-export { auth, signUp, logout, authCheckState } from './auth';
+export {
+  auth,
+  authSuccess,
+  checkAuthTimout,
+  signUp,
+  signUpSuccess,
+  logout,
+  authCheckState,
+} from './auth';

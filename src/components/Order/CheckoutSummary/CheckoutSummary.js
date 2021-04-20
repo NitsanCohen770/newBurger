@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Burger from '../../Burger/Burger';
 import Button from '../../UI/Button/Button';
 import classes from './CheckoutSummary.module.css';
@@ -7,11 +6,11 @@ import classes from './CheckoutSummary.module.css';
 const checkoutSummary = props => {
   return (
     <div className={classes.CheckoutSummary}>
-      <h1>מקווים שתהנו מההמבורגר!</h1>
+      <h1 className={classes.h1}> מקווים שתהנו מההמבורגר!</h1>
       <div style={{ width: '100%', margin: 'auto' }}>
         <Burger ingredients={props.ingredients} />
         <p>לחץ המשך להשלמת ההזמנה</p>
-        <hr></hr>
+        <hr className={classes.hr}></hr>
       </div>
       <Button btnType="Success" clicked={props.checkoutContinued}>
         המשך

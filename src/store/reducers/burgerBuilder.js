@@ -77,13 +77,19 @@ const reducer = (state = initialState, action) => {
         totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
       };
     case actionTypes.SET_INGREDIENTS:
+      if (localStorage.getItem('persist:root')) {
+        return {
+          ...state,
+        };
+      }
       return {
         ...state,
         ingredients: {
-          salad: action.ingredients.salad,
-          pastrama: action.ingredients.pastrama,
-          meat: action.ingredients.meat,
+          salad: 0,
+          pastrama: 0,
+          meat: 0,
         },
+        totalPrice: 30,
         error: false,
       };
     case actionTypes.FETCH_INGREDIENTS_FAILED:

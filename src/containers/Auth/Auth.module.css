@@ -6,7 +6,19 @@
 .email {
   direction: rtl !important;
 }
+.google {
+  display: inline-block;
+  padding-right: 50px;
+  border-radius: 5px;
+}
+button {
+  display: inline-block;
+}
+.buttons_container {
+  text-align: center;
+}
 .Button {
+  display: inline-block;
   margin-inline-start: auto;
   margin-block-start: 20px;
   margin-bottom: 5px;

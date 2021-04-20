@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
+import GoogleSign from './googleSign/googleSign';
 import { useForm } from 'react-hook-form';
 import classes from './Auth.module.css';
 import rtlClasses from '../../assets/css/rtl.css';
@@ -23,7 +24,7 @@ function Auth(props) {
   if (success) {
     setTimeout(() => {
       return setRedirect(true);
-    }, 5000);
+    }, 3000);
   }
 
   return (
@@ -68,6 +69,7 @@ function Auth(props) {
           </Button>
         </LinkContainer>
       </Form>
+      <GoogleSign text={'התחבר עם חשבון גוגל'} />
       {redirect && <Redirect to="/" />}
     </div>
   );

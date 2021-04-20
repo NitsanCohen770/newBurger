@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import classes from './BurgerIngredient.module.css';
 import PropTypes from 'prop-types';
 
-const burgerIngredients = props => {
+const BurgerIngredients = ({ handleDrag, handleDrop, type, id }) => {
   let ingredient = null;
 
-  switch (props.type) {
+  switch (type) {
     case 'bread-bottom':
       ingredient = <div className={classes.BreadBottom}></div>;
       break;
@@ -19,19 +19,52 @@ const burgerIngredients = props => {
       );
       break;
     case 'meat':
-      ingredient = <div className={classes.Meat}> </div>;
+      ingredient = (
+        <div
+          draggable={true}
+          onDragOver={ev => ev.preventDefault()}
+          onDragStart={handleDrag}
+          onDrop={handleDrop}
+          id={id}
+          className={classes.Meat}
+        >
+          {' '}
+        </div>
+      );
       break;
     case 'salad':
-      ingredient = <div className={classes.Salad}> </div>;
+      ingredient = (
+        <div
+          draggable={true}
+          onDragOver={ev => ev.preventDefault()}
+          onDragStart={handleDrag}
+          onDrop={handleDrop}
+          id={id}
+          className={classes.Salad}
+        >
+          {' '}
+        </div>
+      );
       break;
     case 'pastrama':
-      ingredient = <div className={classes.Pastrama}> </div>;
+      ingredient = (
+        <div
+          draggable={true}
+          onDragOver={ev => ev.preventDefault()}
+          onDragStart={handleDrag}
+          onDrop={handleDrop}
+          id={id}
+          className={classes.Pastrama}
+        >
+          {' '}
+        </div>
+      );
       break;
   }
   return ingredient;
-  burgerIngredients.PropTypes = {
+  BurgerIngredients.PropTypes = {
     type: PropTypes.string.isRequired,
   };
 };
 
-export default burgerIngredients;
+export default BurgerIngredients;
